@@ -44,15 +44,25 @@ function App() {
         for (let i = 0; i < numRows; i++) {
           for (let q = 0; q < numCols; q++){
             let neighbors = 0;
-            if (gridCopy[i][q] === 1) {
-              neighbors += 1;
+            probabilities.forEach(([x, y]) => {
+              const newI = i + x;
+              const newQ = q + y;
+              if (newI >= 0 && newI < numRows && newQ >= 0 && newQ < numCols) {
+                neighbors += g[newI][newQ]
+              }
+            })
+
+            if (neighbors < 2 || neighbors > 3) {
+              gridCopy[i][q] = 0;
+            } else if (g[i][q] === 0 && neighbors === 3) {
+              gridCopy[i][q] = 1;
             }
           }
         }
       })
     })
 
-    setTimeout(simulation, 850);
+    setTimeout(simulation, 500);
   }, [])
 
   return (
@@ -61,6 +71,8 @@ function App() {
       <button
       onClick={() => {
         setRunning(!running);
+        runRef.current = true;
+        simulation();
       }}>
       {running ? "death" : "birth"}
       </button>
