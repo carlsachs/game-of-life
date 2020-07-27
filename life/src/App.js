@@ -9,6 +9,17 @@ function App() {
   const numRows = 50;
   const numCols = 50;
 
+  const probabilities = [
+    [0, 1],
+    [0, -1],
+    [1, -1],
+    [-1, 1],
+    [1, 1],
+    [-1, -1],
+    [1, 0],
+    [-1, 0]
+  ]
+
   const [grid, setGrid] = useState(() => {
     const rows = [];
     for(let i = 0; i < numRows; i++) {
@@ -27,6 +38,19 @@ function App() {
     if (!runRef.current) {
       return;
     }
+
+    setGrid(g => {
+      return produce(g, gridCopy => {
+        for (let i = 0; i < numRows; i++) {
+          for (let q = 0; q < numCols; q++){
+            let neighbors = 0;
+            if (gridCopy[i][q] === 1) {
+              neighbors += 1;
+            }
+          }
+        }
+      })
+    })
 
     setTimeout(simulation, 850);
   }, [])
