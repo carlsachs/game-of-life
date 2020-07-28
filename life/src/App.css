@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.wrap {
+background: rgb(34,34,34);
+background: radial-gradient(circle, rgba(34,34,34,0.8449754901960784) 0%, rgba(41,41,41,1) 100%);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

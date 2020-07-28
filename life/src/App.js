@@ -62,21 +62,56 @@ function App() {
       })
     })
 
-    setTimeout(simulation, 500);
+    setTimeout(simulation, 100);
   }, [])
 
   return (
-  <div>
-
-      <button
-      onClick={() => {
-        setRunning(!running);
-        runRef.current = true;
-        simulation();
+  <div className="wrap">
+      <h1 style={{
+        color: "white",
+        display: "flex",
+        justifyContent: "center",
+        paddingTop: "3%"
+      }}>Carl's Conway's Game of Life</h1>
+      <div style={{
+        display: "flex",
+        justifyContent: "space-evenly",
+        marginBottom: "3%"
       }}>
-      {running ? "death" : "birth"}
+        <button style={{
+          width: "200px",
+          height: "35px",
+          backgroundColor: "#1c5c24",
+          border: "1px solid white",
+          color: "white"
+        }}
+        onClick={() => {
+          setRunning(!running);
+          runRef.current = true;
+          simulation();
+        }}>
+        {running ? "Kill" : "Birth"}
+        </button>
+        <button style={{
+          width: "200px",
+          height: "35px",
+          backgroundColor: "#1c5c24",
+          border: "1px solid white",
+          color: "white"
+        }}
+        onClick={() => {
+          const rows = [];
+          for (let i = 0; i < numRows; i++) {
+            rows.push(
+              Array.from(Array(numCols), () => (Math.random() > 0.7 ? 1 : 0))
+            );
+          }
+          setGrid(rows);
+        }}
+      >
+      Random Generation Cycle
       </button>
-
+      </div>
       <div style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${numCols}, 30px)`
@@ -93,10 +128,10 @@ function App() {
             setGrid(newGrid)
           }}
           style={{
-            height: 30, 
-            width: 30, 
-            backgroundColor: grid[i][q] ? "darkgreen" : undefined,
-            border: "1px solid green",
+            height: 25, 
+            width: 25, 
+            backgroundColor: grid[i][q] ? "#54ff68" : undefined,
+            border: "1px solid #1c5c24",
           }} />
           ))
           )}
