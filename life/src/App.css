@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  height: 150vh;
+  background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,0.9346113445378151) 0%, rgba(221,221,221,1) 100%);
+}
