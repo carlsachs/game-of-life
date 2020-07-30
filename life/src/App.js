@@ -6,8 +6,8 @@ import produce from "immer";
 
 function App() {
 
-  const numRows = 50;
-  const numCols = 50;
+  const numRows = 30;
+  const numCols = 30;
 
   const probabilities = [
     [0, 1],
@@ -65,6 +65,14 @@ function App() {
     setTimeout(simulation, 100);
   }, [])
 
+  const generateEmptyGrid = () => {
+    const rows = [];
+    for (let i = 0; i < numRows; i++) {
+      rows.push(Array.from(Array(numCols), () => 0));
+    }
+    return rows;
+  };
+
   return (
   <div className="wrap">
       <h1 style={{
@@ -81,7 +89,7 @@ function App() {
         <button style={{
           width: "200px",
           height: "35px",
-          backgroundColor: "#1c5c24",
+          backgroundColor: "#045dc9",
           border: "1px solid white",
           color: "white"
         }}
@@ -95,7 +103,19 @@ function App() {
         <button style={{
           width: "200px",
           height: "35px",
-          backgroundColor: "#1c5c24",
+          backgroundColor: "#045dc9",
+          border: "1px solid white",
+          color: "white"
+        }}
+        onClick={() => {
+          setGrid(generateEmptyGrid());
+        }}>
+        Clear
+        </button>
+        <button style={{
+          width: "200px",
+          height: "35px",
+          backgroundColor: "#045dc9",
           border: "1px solid white",
           color: "white"
         }}
@@ -109,12 +129,14 @@ function App() {
           setGrid(rows);
         }}
       >
-      Random Generation Cycle
+      Generate Random Cycle
       </button>
       </div>
       <div style={{
         display: 'grid',
-        gridTemplateColumns: `repeat(${numCols}, 30px)`
+        gridTemplateColumns: `repeat(${numCols}, 30px)`,
+        justifyContent: "center",
+        marginBottom: "3%"
       }}>
       
       {grid.map((rows, i) => 
@@ -130,8 +152,8 @@ function App() {
           style={{
             height: 25, 
             width: 25, 
-            backgroundColor: grid[i][q] ? "#54ff68" : undefined,
-            border: "1px solid #1c5c24",
+            backgroundColor: grid[i][q] ? "#3bbeff" : undefined,
+            border: "1px solid #045dc9",
           }} />
           ))
           )}
