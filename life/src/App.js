@@ -30,6 +30,7 @@ function App() {
   });
 
   const [running, setRunning] = useState(false);
+  const [colors, setColors] = useState(["#34a1eb", "#0f4fa8", "#5dcdfc", "#0775e3", "#124373", "#3987bf"]);
   
   const runRef = useRef(running);
   runRef.current = running
@@ -73,13 +74,29 @@ function App() {
     return rows;
   };
 
+  const changeBg = () => {
+    const color = colors 
+    if (color.length <= 0){
+      return
+    }
+    else if (color.length > 0){
+      const randomColor = color[Math.floor(Math.random() * color.length)];
+      return randomColor
+    }
+    else {
+      return "blue"
+    }
+  }
+
   return (
   <div className="wrap">
       <h1 style={{
-        color: "white",
+        color: "#0a93f0",
         display: "flex",
         justifyContent: "center",
-        paddingTop: "3%"
+        paddingTop: "3%",
+        marginBottom: "3%",
+        fontFamily: "Mansalva, cursive"
       }}>Carl's Conway's Game of Life</h1>
       <div style={{
         display: "flex",
@@ -89,9 +106,11 @@ function App() {
         <button style={{
           width: "200px",
           height: "35px",
-          backgroundColor: "#045dc9",
+          backgroundColor: "#46a7e8",
           border: "1px solid white",
-          color: "white"
+          color: "white",
+          borderRadius: "5px",
+          fontFamily: "Mansalva, cursive"
         }}
         onClick={() => {
           setRunning(!running);
@@ -103,9 +122,11 @@ function App() {
         <button style={{
           width: "200px",
           height: "35px",
-          backgroundColor: "#045dc9",
+          backgroundColor: "#46a7e8",
           border: "1px solid white",
-          color: "white"
+          color: "white",
+          borderRadius: "5px",
+          fontFamily: "Mansalva, cursive"
         }}
         onClick={() => {
           setGrid(generateEmptyGrid());
@@ -115,9 +136,11 @@ function App() {
         <button style={{
           width: "200px",
           height: "35px",
-          backgroundColor: "#045dc9",
+          backgroundColor: "#46a7e8",
           border: "1px solid white",
-          color: "white"
+          color: "white",
+          borderRadius: "5px",
+          fontFamily: "Mansalva, cursive"
         }}
         onClick={() => {
           const rows = [];
@@ -152,8 +175,8 @@ function App() {
           style={{
             height: 25, 
             width: 25, 
-            backgroundColor: grid[i][q] ? "#3bbeff" : undefined,
-            border: "1px solid #045dc9",
+            backgroundColor: grid[i][q] ? changeBg() : undefined,
+            border: "1px solid #99d6ff",
           }} />
           ))
           )}
