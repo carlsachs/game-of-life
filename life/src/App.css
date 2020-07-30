@@ -10,3 +10,8 @@
   background: rgb(255,255,255);
 background: radial-gradient(circle, rgba(255,255,255,0.9346113445378151) 0%, rgba(221,221,221,1) 100%);
 }
+
+.buttons:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}

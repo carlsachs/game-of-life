@@ -30,7 +30,7 @@ function App() {
   });
 
   const [running, setRunning] = useState(false);
-  const [colors, setColors] = useState(["#34a1eb", "#0f4fa8", "#5dcdfc", "#0775e3", "#124373", "#3987bf"]);
+  const [colors] = useState(["#34a1eb", "#0f4fa8", "#5dcdfc", "#0775e3", "#124373", "#3987bf"]);
   
   const runRef = useRef(running);
   runRef.current = running
@@ -64,7 +64,7 @@ function App() {
     })
 
     setTimeout(simulation, 100);
-  }, [])
+  }, [probabilities])
 
   const generateEmptyGrid = () => {
     const rows = [];
@@ -103,7 +103,7 @@ function App() {
         justifyContent: "space-evenly",
         marginBottom: "3%"
       }}>
-        <button style={{
+        <button className="buttons" style={{
           width: "200px",
           height: "35px",
           backgroundColor: "#46a7e8",
@@ -119,7 +119,7 @@ function App() {
         }}>
         {running ? "Kill" : "Birth"}
         </button>
-        <button style={{
+        <button className="buttons" style={{
           width: "200px",
           height: "35px",
           backgroundColor: "#46a7e8",
@@ -133,7 +133,7 @@ function App() {
         }}>
         Clear
         </button>
-        <button style={{
+        <button className="buttons" style={{
           width: "200px",
           height: "35px",
           backgroundColor: "#46a7e8",
