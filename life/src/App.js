@@ -154,6 +154,17 @@ function App() {
       >
       Generate Random Cycle
       </button>
+        <a href="/about" style={{
+          width: "200px",
+          height: "35px",
+          backgroundColor: "#46a7e8",
+          border: "1px solid white",
+          color: "white",
+          borderRadius: "5px",
+          fontFamily: "Mansalva, cursive",
+          textDecoration: "none",
+          textAlign: "center"
+        }}>About</a>
       </div>
       <div style={{
         display: 'grid',
@@ -181,6 +192,25 @@ function App() {
           ))
           )}
       
+      </div>
+
+      <div style={{
+        display: "flex",
+        flexFlow: "row nowrap",
+        justifyContent: "space-evenly",
+        backgroundColor: "#F#e8e8e8FFFFF"
+    }}>
+
+      <div>
+          <h2>Conway's Rules for Birth</h2>
+          <h3>Each dead cell adjacent to exactly three live neighbors will become live in the next generation.</h3>
+      </div>
+
+      <div>
+          <h2>Conway's Rules for Death</h2>
+          <h3>Each live cell with one or fewer live neighbors will die in the next generation.</h3>
+      </div>
+
       </div>
     </div>
   );
