@@ -1,4 +1,4 @@
-# game-of-life
+# Conway's Game of Life
 
 ## This game of life was created by Carl Sachs.
 
@@ -8,13 +8,5 @@ This a project based on Conway's Game of Life, you can find more about that here
 
 https://study.com/academy/lesson/conways-game-of-life-rules-instructions.html#:~:text=Rules%20for%20Conway's%20Game%20of%20Life,-At%20the%20heart&text=Births%3A%20Each%20dead%20cell%20adjacent,die%20in%20the%20next%20generation.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+I created this project for a sprint in Lambda School.  Conway's GoL has been around for decades, and is arguable the biggest staple project in computer science.
 
